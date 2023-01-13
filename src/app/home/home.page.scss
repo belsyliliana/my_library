@@ -1,28 +1,31 @@
-#container {
-  text-align: center;
+ion-slides {
+  height: 100%;
+  max-width: 800px;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.swiper-slide {
+  display: block;
+  padding: 20px 20px 20px 0px;
+
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-slide > h1,h2 {
+  color: var(--ion-color-primary);
+  font-style: italic;
+}
+ion-slide > p {
+  font-style: italic;
+  font-size: 22px;
+  padding: 1em 1em 1em 1em;
+  border: solid;
+  padding: 20px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
 
-  color: #ba1313;
-
-  margin: 0;
 }
 
-#container a {
-  text-decoration: none;
+ion-slide > ion-icon[name="close"] {
+  float: right;
+  color: var(--ion-color-danger);
+  font-size: 40px;
 }
-
