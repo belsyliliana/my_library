@@ -1,8 +1,15 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+
 /** Ionic CSS Variables **/
 :root {
+  // Mis variables 
+
+--ion-color-letras: #000000;
+--ion-color-boton: #FA7430;
+--ion-color-letra-boton: #fff;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
