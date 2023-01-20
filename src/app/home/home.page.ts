@@ -16,6 +16,14 @@ export class HomePage {
 
   }
 
+  slides = [
+    {
+      title: "Title",
+      subtitle:"subtitile",
+      img: "url o ruta",
+    }
+  ]
+
   constructor() {}
 
 }
