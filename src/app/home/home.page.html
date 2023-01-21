@@ -1,6 +1,5 @@
 <ion-content>
   <ion-app>
-
     <div class="ion-page" id="main-content">
       <ion-header>
         <ion-toolbar>
@@ -11,33 +10,21 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-  
-  
         <ion-slides pager="true" [options]="slideOpt">
-           
-                <ion-slide>
-           
-              <img src="https://quest-tuition.com/images/2020/02/28/english-tuition-birmingham.jpg" alt="">
-                  <p>Gracias por preferirnos, te invitamos a vivir la mejor experiencia de toda tu vida</p>
-                  <p>Autora: Belsy Liliana</p>
-            <ion-button>Comenzar..</ion-button>
-
-            
+          <ion-slide>
+            <img
+              src="https://quest-tuition.com/images/2020/02/28/english-tuition-birmingham.jpg"
+              alt=""
+            />
+            <p>
+              Gracias por preferirnos, te invitamos a vivir la mejor experiencia
+              de toda tu vida
+            </p>
+            <p>Autora: Belsy Liliana</p>
+            <ion-button (click)="comenzarApp()">Comenzar..</ion-button>
           </ion-slide>
-      
-        
-    
-    
         </ion-slides>
-       
-    </ion-content>
-    
-    
+      </ion-content>
     </div>
   </ion-app>
-  
-    
-  
-
 </ion-content>
-

@@ -1,16 +1,14 @@
 ion-slides {
   height: 100%;
   max-width: 800px;
-
 }
 
 .swiper-slide {
   display: block;
-  
-
 }
 
-ion-slide > h1,h2 {
+ion-slide > h1,
+h2 {
   color: var(--ion-color-letras);
   font-style: italic;
 }
@@ -18,16 +16,12 @@ ion-slide > p {
   font-style: italic;
   font-size: 11px;
   padding: 1em 1em 1em 1em;
-  //border: solid;
-  //padding: 20px 20px 20px 20px;
-  //margin: 20px 20px 20px 20px;
-
 }
 
 ion-slide > ion-icon[name="close"] {
   float: right;
   color: var(--ion-color-danger);
-  font-size: 0,1px;
+  font-size: 0, 1px;
 }
 
 ion-button {
