@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LibraryService } from '../services/library.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  constructor() { }
+  authors: any;
+
+  slideOps = {
+    initialSlide: 2,
+    slidesPerView: 4,
+    centeresSlides: true,
+    speed: 400
+  }
+  constructor(private LibraryService: LibraryService) { }
+
+ 
+
+    ionViewDidEnter(){
+      this.LibraryService.getAuthors().then( res => {
+        this.authors = res.data;
+        console.log(this.authors)
+      })
+    }
 
   ngOnInit() {
   }

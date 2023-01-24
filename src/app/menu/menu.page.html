@@ -2,10 +2,9 @@
   <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar color="tertiary">
-        <ion-title>Menu Content</ion-title>
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">This is the menu content.</ion-content>
   </ion-menu>
   <div class="ion-page" id="main-content">
     <ion-header>
@@ -17,7 +16,14 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      Tap the button in the toolbar to open the menu.
+      <ion-slides [options]="slideOps">
+        <ion-slides *ngFor="let author of authors ">
+        <ion-avatar>
+          <img src="{{author.avatar}}"/>
+          <span>{{author.first_name}}</span>
+        </ion-avatar>
+      </ion-slides>
+      </ion-slides>
     </ion-content>
   </div>
 </ion-app>
