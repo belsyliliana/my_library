@@ -60,6 +60,10 @@ const routes: Routes = [
     path: 'authors-detail-modal',
     loadChildren: () => import('./authors-detail-modal/authors-detail-modal.module').then( m => m.AuthorsDetailModalPageModule)
   },
+  {
+    path: 'mejortop',
+    loadChildren: () => import('./mejortop/mejortop.module').then( m => m.MejortopPageModule)
+  },
 ];
 
 @NgModule({

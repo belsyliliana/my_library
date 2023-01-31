@@ -23,6 +23,16 @@ const routes: Routes = [
       {
         path: 'favorite-books',
         loadChildren: () => import('../favorite-books/favorite-books.module').then( m => m.FavoriteBooksPageModule)
+      },
+
+      {
+        path: 'authors',
+        loadChildren: () => import('../authors/authors.module').then( m => m.AuthorsPageModule)
+      },
+
+      {
+        path: 'mejortop',
+        loadChildren: () => import('../mejortop/mejortop.module').then( m => m.MejortopPageModule)
       }
     ]
   }

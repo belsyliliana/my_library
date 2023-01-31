@@ -22,12 +22,18 @@ export class LibraryService {
     //return booksOffline;
   }
 
-  getBooksAuthor(author_id:any) {
+ /*  getBooksAuthor(author_id:any) {
+    return fetch(`${this.urlServer}books_authors?author_id=${author_id}`).then(
+      authors => authors.json()
+    );
+  } */
+  
+  getBooksAuthor(author_id:any){
     return fetch(`${this.urlServer}books_authors?author_id=${author_id}`).then(
       books => books.json()
     )
   }
-
+  
   getBooks(){
     return fetch(`${this.urlServer}books`).then(
       allBooks => allBooks.json()
@@ -60,6 +66,12 @@ export class LibraryService {
       }
     }
     return this.http.post(`${this.urlServer}dislike`, params, this.httpHeaders)
+  }
+
+  getTopTen(){
+    return fetch("https://librarypca.fly.dev/top_books").then(
+      TopTen => TopTen.json()
+    );
   }
 
 }
