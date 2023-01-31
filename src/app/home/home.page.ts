@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component } from '@angular/core';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
+import { LibraryService } from '../services/library.service';
+import { BooksModalPage } from '../books-modal/books-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -7,36 +9,59 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  slideOpt = {
-    initialSlide: 0, //slide inicial (primero) [0,1,2,3]
-    slidesPerView: 1, //configuramos un slide por vista
-    centerSlides: true, //que las slides enten centradas
-    speed: 400, //velocidad movimiento de los slides
-  };
+  authors: any;
+  booksOff: any;
 
-  slides = [
-    {
-      title: 'Title',
-      subtitle: 'subtitile',
-      img: 'url o ruta',
-    },
-  ];
-
-  name: string;
-
+  slideOps = {
+    initialSlide: 1,
+    slidesPerView: 3,
+    centeredSlides: true,
+    speed: 400
+  }
   constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-    this.name = "";
+    private libraryService: LibraryService,
+    private modalController: ModalController,
+    private navCtrl: NavController,
+    private menu: MenuController
+    ) {}
+
+  ionViewDidEnter(){
+
+    this.libraryService.getAuthors().then( res => {
+      this.authors = res;
+    })
+
+    this.booksOff = this.libraryService.getBooksOffline();
+    console.log(this.booksOff.books);
   }
 
-  comenzarApp() {
-    
-    //alert('hola')
-    this.router.navigate(['/login']);
+  async showBooks(author:any) {
+    const modal = await this.modalController.create({
+      component: BooksModalPage,
+      componentProps: {
+        author: author
+      }
+    });
+    return await modal.present();
   }
 
-  OnInit() {
+  goToAuthors(){
+    this.navCtrl.navigateForward("/menu/authors");
+    this.menu.close();
   }
+
+  goToBooks(){
+    this.navCtrl.navigateForward("/menu/books");
+    this.menu.close();
+  }
+
+  goToMyFavorites(){
+    this.navCtrl.navigateForward("/menu/favorite-books");
+    this.menu.close();
+  }
+
+  logout(){
+    this.navCtrl.navigateRoot("/login");
+  }
+
 }

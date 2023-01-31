@@ -1,30 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-app>
-    <div class="ion-page" id="main-content">
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>BelsySoft</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-slides pager="true" [options]="slideOpt">
-          <ion-slide>
-            <img
-              src="https://quest-tuition.com/images/2020/02/28/english-tuition-birmingham.jpg"
-              alt=""
-            />
-            <p>
-              Gracias por preferirnos, te invitamos a vivir la mejor experiencia
-              de toda tu vida
-            </p>
-            <p>Autora: Belsy Liliana</p>
-            <ion-button (click)="comenzarApp()">Comenzar..</ion-button>
-          </ion-slide>
-        </ion-slides>
-      </ion-content>
-    </div>
-  </ion-app>
+  <p class="ion-text-center ion-text-uppercase">Hola soy el home</p>
+
+  <ion-slides [options]="slideOps">
+      <ion-slide *ngFor="let author of authors">
+          <ion-avatar (click)="showBooks(author)">
+              <img src="{{author.photo}}"/>
+              <span>{{author.name}}</span>
+          </ion-avatar>
+      </ion-slide>
+  </ion-slides>
+
+<ion-grid>
+  <ion-row>
+      <ion-col size="6">
+          <ion-card color="danger" (click)="goToAuthors()">
+              <ion-card-header>
+                <ion-card-title>Autores</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                  <ion-icon name="people-outline"></ion-icon>
+              </ion-card-content>
+          </ion-card>
+      </ion-col>
+      <ion-col size="6">
+          <ion-card color="warning" (click)="goToBooks()">
+              <ion-card-header>
+                <ion-card-title>Libros</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                  <ion-icon name="book-outline"></ion-icon>
+              </ion-card-content>
+          </ion-card>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="6">
+          <ion-card color="success" (click)="goToMyFavorites()">
+              <ion-card-header>
+                <ion-card-title>Favoritos</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                  <ion-icon name="star-outline"></ion-icon>
+              </ion-card-content>
+          </ion-card>
+      </ion-col>
+      <ion-col size="6">
+          <ion-card color="tertiary" >
+              <ion-card-header>
+                <ion-card-title>Top 10</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content>
+                  <ion-icon name="list-outline"></ion-icon>
+              </ion-card-content>
+          </ion-card>
+      </ion-col>
+  </ion-row>
+</ion-grid>
+
 </ion-content>
+
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon name="calendar" aria-hidden="true"></ion-icon>
+        <ion-label>Calendario</ion-label>
+        <ion-badge>6</ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="map" (click)="goToMyFavorites()">
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-label>Favoritos</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Salir</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+ 

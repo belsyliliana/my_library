@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LibraryService } from '../services/library.service';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -8,26 +8,39 @@ import { LibraryService } from '../services/library.service';
 })
 export class MenuPage implements OnInit {
 
-  authors: any;
-
-  slideOps = {
-    initialSlide: 2,
-    slidesPerView: 4,
-    centeresSlides: true,
-    speed: 400
-  }
-  constructor(private LibraryService: LibraryService) { }
-
- 
-
-    ionViewDidEnter(){
-      this.LibraryService.getAuthors().then( res => {
-        this.authors = res.data;
-        console.log(this.authors)
-      })
-    }
+  constructor(private menu: MenuController,
+      private navCtrl: NavController
+    ) { }
 
   ngOnInit() {
+  }
+
+  closeMenu(){
+    this.menu.close();
+  }
+
+  logout(){
+    this.navCtrl.navigateRoot("/login");
+  }
+
+  goToAuthors(){
+    this.navCtrl.navigateRoot("/menu/authors");
+    this.menu.close();
+  }
+
+  goToHome(){
+    this.navCtrl.navigateRoot("/menu/home");
+    this.menu.close();
+  }
+
+  goToBooks(){
+    this.navCtrl.navigateRoot("/menu/books");
+    this.menu.close();
+  }
+
+  goToMyFavorites(){
+    this.navCtrl.navigateRoot("/menu/favorite-books");
+    this.menu.close();
   }
 
 }

@@ -1,54 +1,41 @@
-<ion-app>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-  </ion-menu>
-  <div class="ion-page" id="main-content">
+<ion-split-pane contentId="content">
+  <ion-menu contentId="content" side="end">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
         <ion-title>Menu</ion-title>
+        <ion-buttons slot="start">
+          <ion-button (click)="closeMenu()">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <ion-slides [options]="slideOps">
-        <ion-slides *ngFor="let author of authors ">
-        <ion-avatar>
-          <img src="{{author.avatar}}"/>
-          <span>{{author.first_name}}</span>
-        </ion-avatar>
-      </ion-slides>
-      </ion-slides>
+    <ion-content>
+      <ion-item (click)="goToHome()">
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        Inicio
+      </ion-item>
+
+      <ion-item (click)="goToAuthors()">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        Autores
+      </ion-item>
+
+      <ion-item (click)="goToBooks()">
+        <ion-icon name="book-outline" slot="start"></ion-icon>
+        Libros
+      </ion-item>
+
+      <ion-item (click)="goToMyFavorites()">
+        <ion-icon name="star-outline" slot="start"></ion-icon>
+        Mis Favoritos
+      </ion-item>
+
+      <ion-item (click)="logout()">
+        <ion-icon name="log-out" slot="start"></ion-icon>
+        Salir
+      </ion-item>
     </ion-content>
-  </div>
-</ion-app>
-
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="schedule">
-      <ion-icon name="calendar" aria-hidden="true"></ion-icon>
-      <ion-label>Calendario</ion-label>
-      <ion-badge>6</ion-badge>
-    </ion-tab-button>
-
-    <ion-tab-button tab="speakers">
-      <ion-icon name="person-circle" aria-hidden="true"></ion-icon>
-      <ion-label>Perfil</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="map">
-      <ion-icon name="map" aria-hidden="true"></ion-icon>
-      <ion-label>Aprendizaje</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="about">
-      <ion-icon name="information-circle" aria-hidden="true"></ion-icon>
-      <ion-label>Ajustes</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+  </ion-menu>
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>

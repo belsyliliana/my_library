@@ -1,0 +1,20 @@
+ion-button {
+    --background: var(--ion-color-boton);
+    --background-hover: var(--ion-color-boton);
+    --background-activated: var(--ion-color-boton);
+    --background-focused: var(--ion-color-boton);
+  
+    --color: var(--ion-color-letra-boton);
+  
+    --border-radius: 0;
+    --border-color: var(--ion-color-letra-boton);
+    --border-style: solid;
+    --border-width: 1px;
+  
+    --box-shadow: 0 2px 6px 0 var(--ion-color-letra-boton);
+  
+    --ripple-color: deeppink;
+  
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
