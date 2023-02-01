@@ -66,6 +66,11 @@ export class HomePage {
     this.menu.close();
   }
 
+  calendar(){
+    this.navCtrl.navigateForward("/menu/calendar");
+    this.menu.close();
+  }
+
   logout(){
     this.storage.remove("user_id");
     this.storage.set("isUserLoggedIn", false)

@@ -6,18 +6,10 @@
     <ion-buttons slot="end">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>Libros</ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-title>Calendario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item detail="true" *ngFor="let book of books" (click)="showBook(book)">
-      <ion-label>{{book.name}}</ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-datetime [isDateEnabled]="isWeekday"></ion-datetime>
 </ion-content>
-

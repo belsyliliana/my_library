@@ -3,10 +3,11 @@
       <ion-buttons slot="end">
           <ion-menu-button></ion-menu-button>
       </ion-buttons>
+      <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <p class="ion-text-center ion-text-uppercase">Hola soy el home</p>
+  <p class="ion-text-center ion-text-uppercase"></p>
 
   <ion-slides [options]="slideOps">
       <ion-slide *ngFor="let author of authors">
@@ -69,7 +70,7 @@
 
 
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="schedule">
+      <ion-tab-button tab="schedule" (click)="calendar()">
         <ion-icon name="calendar" aria-hidden="true"></ion-icon>
         <ion-label>Calendario</ion-label>
         <ion-badge>6</ion-badge>

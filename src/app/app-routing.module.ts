@@ -64,6 +64,10 @@ const routes: Routes = [
     path: 'mejortop',
     loadChildren: () => import('./mejortop/mejortop.module').then( m => m.MejortopPageModule)
   },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
+  },
 ];
 
 @NgModule({
