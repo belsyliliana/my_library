@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+  <ion-item>
+    <ion-label position="floating">Nombres</ion-label>
+    <ion-input placeholder="Nombres" formControlName="name"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Apellidos</ion-label>
+    <ion-input placeholder="Apellidos" formControlName="last_name"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item >
+      <ion-select placeholder="Tipo de documento" okText="Aceptar" cancelText="Cancelar" formControlName="document_type">
+        <ion-select-option value="cc">CC</ion-select-option>
+        <ion-select-option value="TI">TI</ion-select-option>
+        <ion-select-option value="CE">CE</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  
+  <ion-item>
+    <ion-label position="floating">Número documento</ion-label>
+    <ion-input placeholder="Número documento" formControlName="document_number"> </ion-input>
+  </ion-item>
+  
+  <ion-list>
+    <ion-item >
+      <ion-select placeholder="Carrera" okText="Aceptar" cancelText="Cancelar" formControlName="career">
+        <ion-select-option value="sistemas">Ingeneria de Sistemas</ion-select-option>
+        <ion-select-option value="II">Ingeneria Industrial</ion-select-option>
+        <ion-select-option value="IE">Ingeneria Electronica</ion-select-option>
+        <ion-select-option value="PS">Programación de Software</ion-select-option>
+        <ion-select-option value="C">Contabilidad</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input placeholder="Email" formControlName="email"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input placeholder="Contraseña" type="password" formControlName="password"></ion-input>
+  </ion-item>
+
+  <ion-button shape="round" type="submit" expand="block">  Registrarse </ion-button>
+
+</form>
+
+
+</ion-content>
